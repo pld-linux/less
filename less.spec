@@ -1,14 +1,12 @@
 Summary:	text file browser -- less is more
 Summary(de):	Programm zum Anzeigen von Textdateien - weniger ist mehr
 Summary(fr):	une lecteur de fichiers texte.
-Summary(pl):	Przegl±darka plików tekstowych -- mniej jest wiêcej ;)
-Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir \
-Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
-Summary(tr):	gösterilmesini saðlar.
+Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
+Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:       	less
-Version:	346
+Version:	352
 Release:	1
-Copyright:	distributable
+License:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source0:	http://www.flash.net/~marknu/less/%{name}-%{version}.tar.gz
@@ -33,7 +31,8 @@ Less jest programem podobnym w dzia³aniu do standardowego unixowego
 `more', lecz o znacznie wiêkszych mo¿liwo¶ciach.
 
 %description -l tr
-Metin dosyasý görüntüleyici - more benzeri
+less, more aracýna çok benzeyen ama ondan daha yetenekli bir dosya
+görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa gösterilmesini saðlar.
 
 %prep
 %setup  -q
