@@ -8,9 +8,6 @@ Version:	358
 Release:	23
 License:	GPL
 Group:		Applications/Text
-Group(de):	Applikationen/Text
-Group(fr):	Utilitaires/Texte
-Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
 Source2:	%{name}pipe.sh
