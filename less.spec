@@ -49,7 +49,7 @@ less est un visualisateur de fichier texte, comme « more », mais en
 mieux.
 
 %description -l pl
-Less jest programem podobnym w dzia³aniu do standardowego unixowego
+Less jest programem podobnym w dzia³aniu do standardowego uniksowego
 `more', lecz o znacznie wiêkszych mo¿liwo¶ciach.
 
 %description -l pt_BR
