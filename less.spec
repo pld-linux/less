@@ -1,7 +1,7 @@
 Summary:	Text file browser -- less is more
 Summary(de):	Programm zum Anzeigen von Textdateien - weniger ist mehr
 Summary(es):	Browser para archivo texto (- es +)
-Summary(fr):	Une lecteur de fichiers texte.
+Summary(fr):	Une lecteur de fichiers texte
 Summary(pl):	Przegl╠darka plikСw tekstowych - mniej jest wiЙcej
 Summary(pt_BR):	Browser para arquivo texto (- И +)
 Summary(ru):	Программа для просмотра текстовых файлов похожая на more, но лучше
