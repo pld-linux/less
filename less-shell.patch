@@ -1,18 +1,12 @@
---- less-358/filename.c.broken	Wed Jul 26 20:42:36 2000
-+++ less-358/filename.c	Wed Jul 26 20:43:14 2000
-@@ -514,53 +514,13 @@
+--- less-374/filename.c~	Wed Mar  6 14:54:12 2002
++++ less-374/filename.c	Wed Mar  6 14:56:58 2002
+@@ -550,37 +550,7 @@
  {
  	FILE *fd;
  
 -#if HAVE_SHELL
 -	char *shell;
-+	fd = popen(cmd, "r");
-+	/*
-+	 * Redirection in `popen' might have messed with the
-+	 * standard devices.  Restore binary input mode.
-+	 */
-+	SET_BINARY(0);
- 
+-
 -	shell = lgetenv("SHELL");
 -	if (shell != NULL && *shell != '\0')
 -	{
@@ -20,43 +14,28 @@
 -		char *esccmd;
 -
 -		/*
--		 * Try to escape any metacharacters in the command.
--		 * If we can't do that, just put the command in quotes.
--		 * (But that doesn't work well if the command itself 
--		 * contains quotes.)
+-		 * Read the output of <$SHELL -c cmd>.  
+-		 * Escape any metacharacters in the command.
 -		 */
--		if ((esccmd = esc_metachars(cmd)) == NULL)
+-		esccmd = shell_quote(cmd);
+-		if (esccmd == NULL)
 -		{
--			/*
--			 * Cannot escape the metacharacters, so use quotes.
--			 * Read the output of <$SHELL -c "cmd">.
--			 */
--			scmd = (char *) ecalloc(strlen(shell) + strlen(cmd) + 7,
--						sizeof(char));
--			sprintf(scmd, "%s -c \"%s\"", shell, cmd);
+-			fd = popen(cmd, "r");
 -		} else
 -		{
--			/*
--			 * Read the output of <$SHELL -c cmd>.  
--			 * No quotes; use the escaped cmd.
--			 */
 -			scmd = (char *) ecalloc(strlen(shell) + strlen(esccmd) + 5,
 -						sizeof(char));
--			sprintf(scmd, "%s -c %s", shell, esccmd);
+-			sprintf(scmd, "%s %s %s", shell, shell_coption(), esccmd);
 -			free(esccmd);
+-			fd = popen(scmd, "r");
+-			free(scmd);
 -		}
--		fd = popen(scmd, "r");
--		free(scmd);
 -	} else
 -#endif
 -	{
 -		fd = popen(cmd, "r");
--		/*
--		 * Redirection in `popen' might have messed with the
--		 * standard devices.  Restore binary input mode.
--		 */
--		SET_BINARY(0);
 -	}
- 	return (fd);
- }
- 
++	fd = popen(cmd, "r");
+ 	/*
+ 	 * Redirection in `popen' might have messed with the
+ 	 * standard devices.  Restore binary input mode.
