@@ -9,7 +9,7 @@ Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Summary(uk):	ðÒÏÇÒÁÍÁ ÄÌÑ ÐÅÒÅÇÌÑÄÕ ÔÅËÓÔÏ×ÉÈ ÆÁÊÌ¦× ÓÈÏÖÁ ÎÁ more, ÁÌÅ ËÒÁÝÁ
 Name:		less
 Version:	378
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
@@ -21,6 +21,8 @@ Source5:	%{name}echo.1
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
 Patch2:		%{name}-edit.patch
+Patch3:		%{name}-libtinfo.patch
+Patch4:		%{name}-number.patch
 URL:		http://www.greenwoodsoftware.com/less/
 BuildRequires:	autoconf
 BuildRequires:	ncurses-devel >= 5.0
@@ -75,6 +77,7 @@ saðlar.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 chmod -R u+w .
