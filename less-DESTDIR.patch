@@ -1,6 +1,6 @@
-diff -ru less-340.old/Makefile.in less-340/Makefile.in
---- less-340.old/Makefile.in	Wed Apr 28 07:12:43 1999
-+++ less-340/Makefile.in	Mon May 17 09:55:29 1999
+diff -Nru less-346/Makefile.in less-346.new/Makefile.in
+--- less-346/Makefile.in	Fri Nov  5 02:47:33 1999
++++ less-346.new/Makefile.in	Thu Dec 30 06:04:41 1999
 @@ -28,6 +28,8 @@
  manext = 1
  manprefix = 
@@ -10,7 +10,7 @@ diff -ru less-340.old/Makefile.in less-340/Makefile.in
  #### End of system configuration section. ####
  
  SHELL = /bin/sh
-@@ -58,18 +60,18 @@
+@@ -58,21 +60,21 @@
  ${OBJ}: ${srcdir}/less.h ${srcdir}/funcs.h defines.h 
  
  install: all ${srcdir}/less.nro ${srcdir}/lesskey.nro installdirs
@@ -19,22 +19,24 @@ diff -ru less-340.old/Makefile.in less-340/Makefile.in
 -	${INSTALL_PROGRAM} lessecho ${bindir}/${binprefix}lessecho
 -	${INSTALL_DATA} ${srcdir}/less.nro ${mandir}/man${manext}/${manprefix}less.${manext}
 -	${INSTALL_DATA} ${srcdir}/lesskey.nro ${mandir}/man${manext}/${manprefix}lesskey.${manext}
-+	${INSTALL_PROGRAM} less ${DESTDIR}${bindir}/${binprefix}less
-+	${INSTALL_PROGRAM} lesskey ${DESTDIR}${bindir}/${binprefix}lesskey
-+	${INSTALL_PROGRAM} lessecho ${DESTDIR}${bindir}/${binprefix}lessecho
-+	${INSTALL_DATA} ${srcdir}/less.nro ${DESTDIR}${mandir}/man${manext}/${manprefix}less.${manext}
-+	${INSTALL_DATA} ${srcdir}/lesskey.nro ${DESTDIR}${mandir}/man${manext}/${manprefix}lesskey.${manext}
++	${INSTALL_PROGRAM} less $(DESTDIR)$(bindir)/${binprefix}less
++	${INSTALL_PROGRAM} lesskey $(DESTDIR)$(bindir)/${binprefix}lesskey
++	${INSTALL_PROGRAM} lessecho $(DESTDIR)$(bindir)/${binprefix}lessecho
++	${INSTALL_DATA} ${srcdir}/less.nro $(DESTDIR)$(mandir)/man${manext}/${manprefix}less.${manext}
++	${INSTALL_DATA} ${srcdir}/lesskey.nro $(DESTDIR)$(mandir)/man${manext}/${manprefix}lesskey.${manext}
+ 
+ install-strip:
+ 	${MAKE} INSTALL_PROGRAM='${INSTALL_PROGRAM} -s' install
  
  installdirs: mkinstalldirs
 -	${srcdir}/mkinstalldirs ${bindir} ${mandir}/man${manext}
-+	${srcdir}/mkinstalldirs ${DESTDIR}${bindir} ${DESTDIR}${mandir}/man${manext}
++	${srcdir}/mkinstalldirs $(DESTDIR)$(bindir) $(DESTDIR)$(mandir)/man${manext}
  
  uninstall:
 -	rm -f ${bindir}/${binprefix}less ${bindir}/${binprefix}lesskey ${bindir}/${binprefix}lessecho
 -	rm -f ${mandir}/man${manext}/${manprefix}less.${manext} ${mandir}/man${manext}/${manprefix}lesskey.${manext}
-+	rm -f ${DESTDIR}${bindir}/${binprefix}less ${DESTDIR}${bindir}/${binprefix}lesskey ${DESTDIR}${bindir}/${binprefix}lessecho
-+	rm -f ${DESTDIR}${mandir}/man${manext}/${manprefix}less.${manext} ${DESTDIR}${mandir}/man${manext}/${manprefix}lesskey.${manext}
++	rm -f $(DESTDIR)$(bindir)/${binprefix}less $(DESTDIR)$(bindir)/${binprefix}lesskey $(DESTDIR)$(bindir)/${binprefix}lessecho
++	rm -f $(DESTDIR)$(mandir)/man${manext}/${manprefix}less.${manext} $(DESTDIR)$(mandir)/man${manext}/${manprefix}lesskey.${manext}
  
  info:
  install-info:
-Only in less-340: Makefile.in~
