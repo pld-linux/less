@@ -14,7 +14,7 @@ License:	GPL
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
 # Source0-md5: 40c2dd4ac137b61b6a55a6478817daf4
-Source1:	%{name}-non-english-man-pages.tar.bz2
+Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5: 07bb76556307ab4cecba7abd3933bad2
 Source2:	%{name}pipe.sh
 Source3:	%{name}.sh
