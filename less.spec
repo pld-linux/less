@@ -9,7 +9,7 @@ Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Summary(uk):	ðÒÏÇÒÁÍÁ ÄÌÑ ÐÅÒÅÇÌÑÄÕ ÔÅËÓÔÏ×ÉÈ ÆÁÊÌ¦× ÓÈÏÖÁ ÎÁ more, ÁÌÅ ËÒÁÝÁ
 Name:		less
 Version:	374
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
@@ -21,8 +21,8 @@ Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
 Patch2:		%{name}-edit.patch
 URL:		http://www.flash.net/~marknu/less/
-BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
+BuildRequires:	ncurses-devel >= 5.0
 Requires:	file
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -78,10 +78,10 @@ saðlar.
 %build
 chmod -R u+w .
 autoconf
-CPPFLAGS="-D_GNU_SOURCE -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64"
 %configure
 
-%{__make} LIBS="-ltinfo"
+%{__make} LIBS="-ltinfo" \
+	CPPFLAGS="-D_GNU_SOURCE -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64"
 
 %install
 rm -rf $RPM_BUILD_ROOT
