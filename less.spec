@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 - removed "Conflicts: glibc <= 2.0.7" (not neccessary now),
 - removed Requires: ncurses,
 - added BuildPrereq: ncurses-devel,
-- removed --mandir=/usr/man/man1 from ./configure,
+- removed --mandir=%{_mandir}/man1 from ./configure,
 - removed mandir and datadir definitions from make and make install options 
   (they seem to be no longer needed),
 - recompiled on rpm 3.
