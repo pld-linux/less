@@ -7,7 +7,7 @@ Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
 Version:	340
-Release:	3
+Release:	4
 Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
@@ -15,7 +15,7 @@ Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
 Patch0:		less-DESTDIR.patch
 Patch1:		less-keys.patch
-BuildRequires:	ncurses-devel
+BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 Buildroot:	/tmp/%{name}-%{version}-root
 
