@@ -4,7 +4,7 @@ Summary(fr):	une lecteur de fichiers texte.
 Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:       	less
-Version:	352
+Version:	354
 Release:	1
 License:	GPL
 Group:		Utilities/Text
