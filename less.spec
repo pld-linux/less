@@ -1,15 +1,15 @@
-Summary:     text file browser -- less is more
-Summary(de): Programm zum Anzeigen von Textdateien - weniger ist mehr
-Summary(fr): une lecteur de fichiers texte.
-Summary(pl): Przegl±darka plików tekstowych -- mniej jest wiêcej ;)
-Summary(tr): less, more aracýna çok benzeyen ama ondan daha yetenekli bir dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa gösterilmesini saðlar.
-Name:        less
-Version:     332
-Release:     3
-Copyright:   distributable
-Group:       Utilities/Text
-Source:      ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
-Buildroot:   /var/tmp/%{name}-%{version}-root
+Summary:	text file browser -- less is more
+Summary(de):	Programm zum Anzeigen von Textdateien - weniger ist mehr
+Summary(fr):	une lecteur de fichiers texte.
+Summary(pl):	Przegl±darka plików tekstowych -- mniej jest wiêcej ;)
+Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa gösterilmesini saðlar.
+Name:       	less
+Version:	332
+Release:	5
+Copyright:	distributable
+Group:		Utilities/Text
+Source:		ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 less is a text file viewer much like 'more', only better.  
@@ -31,13 +31,17 @@ Metin dosyasý görüntüleyici - more benzeri
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" ./configure \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
 	--prefix=/usr
+
 make datadir=/usr/doc
 
 %install
 rm -rf $RPM_BUILD_ROOT
 make prefix=$RPM_BUILD_ROOT/usr install
+
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
 
 %ifarch axp
 install -d $RPM_BUILD_ROOT/bin
@@ -48,15 +52,20 @@ ln -sf /usr/bin/less /bin/more
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc README NEWS
-%attr(755, root, root) /usr/bin/*
-%attr(644, root,  man) /usr/man/man1/*
+%attr(755,root,root) /usr/bin/*
+/usr/man/man1/*
 %ifarch axp
-%attr(755, root, root) /bin/more
+%attr(755,root,root) /bin/more
 %endif
 
 %changelog
+* Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [322-5]
+- added gzipping man pages,
+- removed man group from man pages.
+
 * Tue Oct 06 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [322-3]
 - added pl translation,
