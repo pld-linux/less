@@ -18,7 +18,6 @@ Source3:	%{name}.sh
 Source4:	%{name}.csh
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
-Patch2:		%{name}-lesspipe.sh.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 URL:		http://www.flash.net/~marknu/less/
@@ -47,7 +46,6 @@ saðlar.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 chmod -R u+w .
