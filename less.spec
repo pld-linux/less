@@ -6,17 +6,17 @@ Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir \
 Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
-Version:	340
-Release:	4
+Version:	346
+Release:	1
 Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
-Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
+Source0:	http://www.flash.net/~marknu/less/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
 Patch0:		less-DESTDIR.patch
-Patch1:		less-keys.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
+URL:		http://www.flash.net/~marknu/less/
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -38,7 +38,6 @@ Metin dosyasý görüntüleyici - more benzeri
 %prep
 %setup  -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 chmod -R u+w .
@@ -46,7 +45,7 @@ autoconf
 LDFLAGS="-s"; export LDFLAGS
 %configure
 
-make 
+make LIBS="-ltinfo"
 
 %install
 rm -rf $RPM_BUILD_ROOT
