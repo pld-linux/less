@@ -12,6 +12,9 @@ Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
+Source2:	lesspipe.sh
+Source3:	less.sh
+Source4:	less.csh
 Patch0:		less-DESTDIR.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
@@ -51,12 +54,14 @@ LDFLAGS="-s"; export LDFLAGS
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_mandir}/pl/man1
+install -d $RPM_BUILD_ROOT%{_mandir}/pl/man1 $RPM_BUILD_ROOT/etc/profile.d
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/less.1
+install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}
+install %{SOURCE3} %{SOURCE4} $RPM_BUILD_ROOT/etc/profile.d
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man1/*,pl/man1/*} \
 	README NEWS
@@ -74,6 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {README,NEWS}.gz
 
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) /etc/profile.d/*
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 
