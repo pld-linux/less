@@ -10,7 +10,9 @@ Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source:		ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
+Requires:	ncurses >= 4.2-12
 Buildroot:	/tmp/%{name}-%{version}-root
+Conflicts:	glibc <= 2.0.7
 
 %description
 less is a text file viewer much like 'more', only better.  
@@ -65,6 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [322-5]
 - added Group(pl),
+- added "Requires: ncureses >= 4.2-12" and "Conflicts: glibc <= 2.0.7" for
+  prevent installing in proper enviroment,
 - added gzipping man pages,
 - removed man group from man pages.
 
