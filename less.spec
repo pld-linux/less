@@ -5,7 +5,7 @@ Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
 Version:	358
-Release:	21
+Release:	23
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -18,6 +18,7 @@ Source3:	%{name}.sh
 Source4:	%{name}.csh
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
+Patch2:		%{name}-edit.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 URL:		http://www.flash.net/~marknu/less/
@@ -46,10 +47,12 @@ saðlar.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 chmod -R u+w .
 autoconf
+CPPFLAGS="-D_GNU_SOURCE -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64"
 %configure
 
 %{__make} LIBS="-ltinfo"
