@@ -8,14 +8,14 @@ Summary(ru):	Программа для просмотра текстовых файлов похожая на more, но лучше
 Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
-Version:	381
-Release:	5
+Version:	382
+Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
-# Source0-md5: 40c2dd4ac137b61b6a55a6478817daf4
+# Source0-md5:	103fe4aef6297b93f0f73f38cc3b1bd7
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
-# Source1-md5: 07bb76556307ab4cecba7abd3933bad2
+# Source1-md5:	07bb76556307ab4cecba7abd3933bad2
 Source2:	%{name}pipe.sh
 Source3:	%{name}echo.1
 Patch0:		%{name}-DESTDIR.patch
