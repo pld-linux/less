@@ -7,13 +7,14 @@ Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
 Version:	340
-Release:	2
+Release:	3
 Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
-Patch:		less-DESTDIR.patch
+Patch0:		less-DESTDIR.patch
+Patch1:		less-keys.patch
 BuildRequires:	ncurses-devel
 BuildRequires:	autoconf
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -35,12 +36,14 @@ Less jest programem podobnym w dzia³aniu do standardowego unixowego
 Metin dosyasý görüntüleyici - more benzeri
 
 %prep
-%setup -q
-%patch -p1
+%setup  -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 chmod -R u+w .
 autoconf
+LDFLAGS="-s"; export LDFLAGS
 %configure
 
 make 
