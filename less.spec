@@ -8,6 +8,7 @@ Version:	332
 Release:	5
 Copyright:	distributable
 Group:		Utilities/Text
+Group(pl):	Narzêdzia/Tekst
 Source:		ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
 Buildroot:	/tmp/%{name}-%{version}-root
 
@@ -63,6 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [322-5]
+- added Group(pl),
 - added gzipping man pages,
 - removed man group from man pages.
 
