@@ -1,7 +1,9 @@
 Summary:	text file browser -- less is more
 Summary(de):	Programm zum Anzeigen von Textdateien - weniger ist mehr
+Summary(es):	Browser para archivo texto (- es +)
 Summary(fr):	une lecteur de fichiers texte.
 Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
+Summary(pt_BR):	Browser para arquivo texto (- é +)
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
 Version:	374
@@ -27,6 +29,9 @@ less is a text file viewer much like 'more', only better.
 %description -l de
 less ist ein Textdatei-Viewer ähnlich 'more' ... aber besser!
 
+%description -l es
+less es un visor de archivo texto parecido con 'more', sólo que mejor.
+
 %description -l fr
 less est un visualisateur de fichier texte, comme « more », mais en
 mieux.
@@ -34,6 +39,10 @@ mieux.
 %description -l pl
 Less jest programem podobnym w dzia³aniu do standardowego unixowego
 `more', lecz o znacznie wiêkszych mo¿liwo¶ciach.
+
+%description -l pt_BR
+less é um visualizador de arquivo texto parecido com 'more', só que
+melhor.
 
 %description -l tr
 less, more aracýna çok benzeyen ama ondan daha yetenekli bir dosya
