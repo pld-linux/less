@@ -5,7 +5,7 @@ Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
 Version:	358
-Release:	8
+Release:	17
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
