@@ -6,16 +6,15 @@ Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir \
 Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
-Version:	337
+Version:	340
 Release:	1
 Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
-Requires:	ncurses >= 4.2-12
+BuildPrereq:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
-Conflicts:	glibc <= 2.0.7
 
 %description
 less is a text file viewer much like 'more', only better.  
@@ -39,18 +38,16 @@ Metin dosyasý görüntüleyici - more benzeri
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
-	--prefix=/usr \
-	--mandir=/usr/man/man1
+	--prefix=/usr
 
-make datadir=/usr/doc
+make 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/man/pl/man1
 
 make install \
-	prefix=$RPM_BUILD_ROOT/usr \
-	mandir=$RPM_BUILD_ROOT/usr/man/man1
+	prefix=$RPM_BUILD_ROOT/usr
 
 install %{SOURCE1} $RPM_BUILD_ROOT/usr/man/pl/man1/less.1
 
@@ -78,6 +75,17 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Apr 28 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [340-1]
+- upadted to 340,
+- removed "Conflicts: glibc <= 2.0.7" (not neccessary now),
+- removed Requires: ncurses,
+- added BuildPrereq: ncurses-devel,
+- removed --mandir=/usr/man/man1 from ./configure,
+- removed mandir and datadir definitions from make and make install options 
+  (they seem to be no longer needed),
+- recompiled on rpm 3.
+
 * Thu Apr  1 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [335-1]
 - added pl man page for less(1).
