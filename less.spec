@@ -6,7 +6,7 @@ Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir \
 Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
-Version:	335
+Version:	337
 Release:	1
 Copyright:	distributable
 Group:		Utilities/Text
