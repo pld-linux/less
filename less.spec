@@ -2,7 +2,9 @@ Summary:	text file browser -- less is more
 Summary(de):	Programm zum Anzeigen von Textdateien - weniger ist mehr
 Summary(fr):	une lecteur de fichiers texte.
 Summary(pl):	Przegl±darka plików tekstowych -- mniej jest wiêcej ;)
-Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa gösterilmesini saðlar.
+Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir \
+Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
+Summary(tr):	gösterilmesini saðlar.
 Name:       	less
 Version:	332
 Release:	5
@@ -24,8 +26,8 @@ less ist ein Textdatei-Viewer ähnlich 'more' ... aber besser!
 less est un visualisateur de fichier texte, comme « more », mais en mieux
 
 %description -l pl
-Less jest programem podobnym w dzia³aniu do standardowego unixowego `more',
-lecz o znacznie wiêkszych mo¿liwo¶ciach.
+Less jest programem podobnym w dzia³aniu do standardowego unixowego
+`more', lecz o znacznie wiêkszych mo¿liwo¶ciach.
 
 %description -l tr
 Metin dosyasý görüntüleyici - more benzeri
@@ -45,6 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 make prefix=$RPM_BUILD_ROOT/usr install
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
+bzip2 -9  README NEWS
 
 %ifarch axp
 install -d $RPM_BUILD_ROOT/bin
@@ -56,9 +59,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README NEWS
+%doc {README NEWS}.bz2
+
 %attr(755,root,root) /usr/bin/*
 /usr/man/man1/*
+
 %ifarch axp
 %attr(755,root,root) /bin/more
 %endif
@@ -76,13 +81,5 @@ rm -rf $RPM_BUILD_ROOT
   [322-3]
 - added pl translation,
 - major modifications of the spec file.
-
-* Thu May 07 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Wed Apr 08 1998 Cristian Gafton <gafton@redhat.com>
-- updated to 332 and built for Manhattan
-- added buildroot
-
-* Mon Jun 02 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
+- build against GNU libc-2.1,
+- start at invalid RH spec file.
