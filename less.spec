@@ -4,8 +4,8 @@ Summary(fr):	une lecteur de fichiers texte.
 Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
-Version:	358
-Release:	23
+Version:	374
+Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
