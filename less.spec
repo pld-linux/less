@@ -6,12 +6,13 @@ Summary(tr):	less, more aracýna çok benzeyen ama ondan daha yetenekli bir \
 Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
-Version:	332
-Release:	6
+Version:	335
+Release:	1
 Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
-Source:		ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
+Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
+Source1:	less.1.pl
 Requires:	ncurses >= 4.2-12
 Buildroot:	/tmp/%{name}-%{version}-root
 Conflicts:	glibc <= 2.0.7
@@ -38,15 +39,22 @@ Metin dosyasý görüntüleyici - more benzeri
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
-	--prefix=/usr
+	--prefix=/usr \
+	--mandir=/usr/man/man1
 
 make datadir=/usr/doc
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT/usr install
+install -d $RPM_BUILD_ROOT/usr/man/pl/man1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/* \
+make install \
+	prefix=$RPM_BUILD_ROOT/usr \
+	mandir=$RPM_BUILD_ROOT/usr/man/man1
+
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/man/pl/man1/less.1
+
+gzip -9nf $RPM_BUILD_ROOT/usr/man/{man1/*,pl/man1/*} \
 	README NEWS
 
 %ifarch axp
@@ -63,18 +71,23 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) /usr/bin/*
 /usr/man/man1/*
+%lang(pl) /usr/man/pl/man1/*
 
 %ifarch axp
 %attr(755,root,root) /bin/more
 %endif
 
 %changelog
+* Thu Apr  1 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [335-1]
+- added pl man page for less(1).
+
 * Thu Mar 18 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [322-6]
+  [332-6]
 - gzipping documentation (instead bzipping)
 
 * Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [322-5]
+  [332-5]
 - added Group(pl),
 - added "Requires: ncureses >= 4.2-12" and "Conflicts: glibc <= 2.0.7" for
   prevent installing in proper enviroment,
@@ -82,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 - removed man group from man pages.
 
 * Tue Oct 06 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [322-3]
+  [332-3]
 - added pl translation,
 - major modifications of the spec file.
 - build against GNU libc-2.1,
