@@ -77,7 +77,7 @@ saðlar.
 
 %build
 chmod -R u+w .
-autoconf
+%{__autoconf}
 %configure
 
 %{__make} LIBS="-ltinfo" \
