@@ -1,3 +1,4 @@
+# - SECURITY: http://securitytracker.com/alerts/2004/Aug/1010988.html
 Summary:	Text file browser -- less is more
 Summary(de):	Programm zum Anzeigen von Textdateien - weniger ist mehr
 Summary(es):	Browser para archivo texto (- es +)
