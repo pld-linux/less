@@ -1,0 +1,16 @@
+--- less-378/configure.in~	Sat Jan 18 17:05:57 2003
++++ less-378/configure.in	Sat Jan 18 17:05:57 2003
+@@ -14,9 +14,10 @@
+ dnl AC_SYS_LARGEFILE
+ 
+ dnl Checks for libraries.
+-AC_CHECK_LIB(xcurses, initscr, [have_xcurses=yes], [have_xcurses=no])
+-AC_CHECK_LIB(ncurses, initscr, [have_ncurses=yes], [have_ncurses=no])
+-AC_CHECK_LIB(curses, initscr, [have_curses=yes], [have_curses=no])
++AC_CHECK_LIB(xcurses, tgetent, [have_xcurses=yes], [have_xcurses=no])
++AC_CHECK_LIB(tinfo, tgetent, [have_ncurses=yes],
++   [AC_CHECK_LIB(ncurses, tgetent, [have_ncurses=yes], [have_ncurses=no])])
++AC_CHECK_LIB(curses, tgetent, [have_curses=yes], [have_curses=no])
+ AC_CHECK_LIB(termcap, tgetent, [have_termcap=yes], [have_termcap=no])
+ AC_CHECK_LIB(termlib, tgetent, [have_termlib=yes], [have_termlib=no])
+ dnl Regular expressions (regcmp) are in -lgen on Solaris 2,
