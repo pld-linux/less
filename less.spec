@@ -46,8 +46,8 @@ make datadir=/usr/doc
 rm -rf $RPM_BUILD_ROOT
 make prefix=$RPM_BUILD_ROOT/usr install
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
-gzip -9nf README NEWS
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/* \
+	README NEWS
 
 %ifarch axp
 install -d $RPM_BUILD_ROOT/bin
