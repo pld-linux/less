@@ -4,7 +4,9 @@ Summary(es):	Browser para archivo texto (- es +)
 Summary(fr):	une lecteur de fichiers texte.
 Summary(pl):	Przegl╠darka plikСw tekstowych - mniej jest wiЙcej
 Summary(pt_BR):	Browser para arquivo texto (- И +)
+Summary(ru):	Программа для просмотра текстовых файлов похожая на more, но лучше
 Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
+Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	374
 Release:	1
@@ -24,7 +26,11 @@ URL:		http://www.flash.net/~marknu/less/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-less is a text file viewer much like 'more', only better.
+The less utility is a text file browser that resembles more, but has
+more capabilities. Less allows you to move backwards in the file as
+well as forwards. Since less doesn't have to read the entire input
+file before it starts, less starts up more quickly than text editors
+(for example, vi).
 
 %description -l de
 less ist ein Textdatei-Viewer Дhnlich 'more' ... aber besser!
@@ -44,10 +50,23 @@ Less jest programem podobnym w dziaЁaniu do standardowego unixowego
 less И um visualizador de arquivo texto parecido com 'more', sС que
 melhor.
 
+%description -l ru
+Программа для просмотра текстовых файлов, похожа на more, но имеет
+больше возможностей. less позволяет двигаться по файлу в обратном
+направлении. Поскольку less не считывает предварительно весь входной
+файл, он запускается значительно быстрее текстовых редакторов
+(например, vi).
+
 %description -l tr
 less, more aracЩna Гok benzeyen ama ondan daha yetenekli bir dosya
 gЖrЭntЭleme aracЩdЩr. Metin dosyalarЩnЩn sayfa sayfa gЖsterilmesini
 saПlar.
+
+%description -l uk
+Програма для перегляду текстових файл╕в; схожа на more, але ма╓ б╕льше
+можливостей. less дозволя╓ рухатись по файлу в зворотньому напрямку.
+Оск╕льки less не зчиту╓ попередньо весь вх╕дний файл, в╕н запуска╓ться
+значно швидше н╕ж текстов╕ редактори (наприклад, vi).
 
 %prep
 %setup  -q
