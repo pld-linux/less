@@ -14,6 +14,7 @@ Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
 BuildPrereq:	ncurses-devel
+BuildPrereq:	rpm >= 3.0.1-4
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -36,9 +37,7 @@ Metin dosyasý görüntüleyici - more benzeri
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
-	--prefix=/usr
+%configureS
 
 make 
 
