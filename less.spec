@@ -5,14 +5,14 @@ Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
 Version:	358
-Release:	20
+Release:	21
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
-Source1:	%{name}.1.pl
+Source1:	%{name}-non-english-man-pages.tar.bz2
 Source2:	%{name}pipe.sh
 Source3:	%{name}.sh
 Source4:	%{name}.csh
@@ -56,12 +56,12 @@ autoconf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_mandir}/pl/man1 $RPM_BUILD_ROOT/etc/profile.d
+install -d $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT/etc/profile.d
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/less.1
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}
 install %{SOURCE3} %{SOURCE4} $RPM_BUILD_ROOT/etc/profile.d
 
@@ -82,6 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) /etc/profile.d/*
 %{_mandir}/man1/*
+%lang(de) %{_mandir}/de/man1/*
+%lang(hu) %{_mandir}/hu/man1/*
+%lang(it) %{_mandir}/it/man1/*
+%lang(ja) %{_mandir}/ja/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 
 %ifarch axp
