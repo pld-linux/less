@@ -14,8 +14,8 @@ Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
 Patch:		less-DESTDIR.patch
-BuildPrereq:	ncurses-devel
-BuildPrereq:	autoconf
+BuildRequires:	ncurses-devel
+BuildRequires:	autoconf
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
