@@ -8,11 +8,11 @@ Summary(ru):	Программа для просмотра текстовых файлов похожая на more, но лучше
 Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
-Version:	374
-Release:	3
+Version:	376
+Release:	1
 License:	GPL
 Group:		Applications/Text
-Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
+Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
 Source2:	%{name}pipe.sh
 Source3:	%{name}.sh
@@ -20,7 +20,7 @@ Source4:	%{name}.csh
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
 Patch2:		%{name}-edit.patch
-URL:		http://www.flash.net/~marknu/less/
+URL:		http://www.greenwoodsoftware.com/less/
 BuildRequires:	autoconf
 BuildRequires:	ncurses-devel >= 5.0
 Requires:	file
@@ -94,8 +94,6 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}
 install %{SOURCE3} %{SOURCE4} $RPM_BUILD_ROOT/etc/profile.d
 
-gzip -9nf README NEWS
-
 %ifarch axp
 install -d $RPM_BUILD_ROOT/bin
 ln -sf %{_bindir}/less $RPM_BUILD_ROOT/bin/more
@@ -106,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,NEWS}.gz
+%doc README,NEWS
 
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) /etc/profile.d/*
