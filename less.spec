@@ -9,7 +9,7 @@ Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	374
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
@@ -20,9 +20,10 @@ Source4:	%{name}.csh
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
 Patch2:		%{name}-edit.patch
+URL:		http://www.flash.net/~marknu/less/
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
-URL:		http://www.flash.net/~marknu/less/
+Requires:	file
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
