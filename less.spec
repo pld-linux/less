@@ -9,7 +9,7 @@ Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	378
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
@@ -17,6 +17,7 @@ Source1:	%{name}-non-english-man-pages.tar.bz2
 Source2:	%{name}pipe.sh
 Source3:	%{name}.sh
 Source4:	%{name}.csh
+Source5:	%{name}echo.1
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
 Patch2:		%{name}-edit.patch
@@ -91,6 +92,7 @@ install -d $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT/etc/profile.d
 	DESTDIR=$RPM_BUILD_ROOT
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+install %{SOURCE5} $RPM_BUILD_ROOT%{_mandir}/man1/
 install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}
 install %{SOURCE3} %{SOURCE4} $RPM_BUILD_ROOT/etc/profile.d
 
