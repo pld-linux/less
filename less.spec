@@ -5,7 +5,7 @@ Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
 Version:	358
-Release:	18
+Release:	19
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -31,7 +31,7 @@ less ist ein Textdatei-Viewer ähnlich 'more' ... aber besser!
 
 %description -l fr
 less est un visualisateur de fichier texte, comme « more », mais en
-mieux
+mieux.
 
 %description -l pl
 Less jest programem podobnym w dzia³aniu do standardowego unixowego
