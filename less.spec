@@ -5,7 +5,7 @@ Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
 Version:	358
-Release:	17
+Release:	18
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -17,7 +17,8 @@ Source2:	%{name}pipe.sh
 Source3:	%{name}.sh
 Source4:	%{name}.csh
 Patch0:		%{name}-DESTDIR.patch
-PAtch1:		%{name}-shell.patch
+Patch1:		%{name}-shell.patch
+Patch2:		%{name}-lesspipe.sh.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 URL:		http://www.flash.net/~marknu/less/
@@ -46,6 +47,7 @@ saðlar.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 chmod -R u+w .
