@@ -13,6 +13,7 @@ Release:	4
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
+# Source0-md5:	db73e39a2d1a68eafa949f80be5a28c8
 Source1:	%{name}-non-english-man-pages.tar.bz2
 Source2:	%{name}pipe.sh
 Source3:	%{name}.sh
