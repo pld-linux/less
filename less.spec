@@ -7,14 +7,15 @@ Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
 Version:	340
-Release:	1
+Release:	2
 Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu:/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
+Patch:		less-DESTDIR.patch
 BuildPrereq:	ncurses-devel
-BuildPrereq:	rpm >= 3.0.1-4
+BuildPrereq:	autoconf
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -35,27 +36,30 @@ Metin dosyasý görüntüleyici - more benzeri
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-%configureS
+chmod -R u+w .
+autoconf
+%configure
 
 make 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/man/pl/man1
+install -d $RPM_BUILD_ROOT%{_mandir}/pl/man1
 
 make install \
-	prefix=$RPM_BUILD_ROOT/usr
+	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/man/pl/man1/less.1
+install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/less.1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/{man1/*,pl/man1/*} \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man1/*,pl/man1/*} \
 	README NEWS
 
 %ifarch axp
 install -d $RPM_BUILD_ROOT/bin
-ln -sf /usr/bin/less /bin/more
+ln -sf %{_bindir}/less $RPM_BUILD_ROOT/bin/more
 %endif
 
 %clean
@@ -65,15 +69,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {README,NEWS}.gz
 
-%attr(755,root,root) /usr/bin/*
-/usr/man/man1/*
-%lang(pl) /usr/man/pl/man1/*
+%attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
 
 %ifarch axp
 %attr(755,root,root) /bin/more
 %endif
 
 %changelog
+* Mon May 17 1999 Artur Frysiak <wiget@pld.org.pl>
+  [340-2]
+- added less-DESTDIR.patch (using DESTDIR at install time)
+- using more rpm's macros
+- fixed permission to sources
+
 * Thu Apr 28 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [340-1]
 - upadted to 340,
