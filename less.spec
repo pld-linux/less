@@ -5,17 +5,19 @@ Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
 Version:	358
-Release:	3
+Release:	8
 License:	GPL
-Group:		Utilities/Text
+Group:		Applications/Text
+Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
-Group(pl):	Narzêdzia/Tekst
+Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
-Source1:	less.1.pl
-Source2:	lesspipe.sh
-Source3:	less.sh
-Source4:	less.csh
-Patch0:		less-DESTDIR.patch
+Source1:	%{name}.1.pl
+Source2:	%{name}pipe.sh
+Source3:	%{name}.sh
+Source4:	%{name}.csh
+Patch0:		%{name}-DESTDIR.patch
+PAtch1:		%{name}-shell.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 URL:		http://www.flash.net/~marknu/less/
@@ -43,11 +45,11 @@ saðlar.
 %prep
 %setup  -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 chmod -R u+w .
 autoconf
-LDFLAGS="-s"; export LDFLAGS
 %configure
 
 %{__make} LIBS="-ltinfo"
@@ -63,8 +65,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/less.1
 install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}
 install %{SOURCE3} %{SOURCE4} $RPM_BUILD_ROOT/etc/profile.d
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man1/*,pl/man1/*} \
-	README NEWS
+gzip -9nf README NEWS
 
 %ifarch axp
 install -d $RPM_BUILD_ROOT/bin
