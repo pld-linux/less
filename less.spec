@@ -7,7 +7,7 @@ Summary(tr):	dosya görüntüleme aracýdýr. Metin dosyalarýnýn sayfa sayfa \
 Summary(tr):	gösterilmesini saðlar.
 Name:       	less
 Version:	332
-Release:	5
+Release:	6
 Copyright:	distributable
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 make prefix=$RPM_BUILD_ROOT/usr install
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
-bzip2 -9  README NEWS
+gzip -9nf README NEWS
 
 %ifarch axp
 install -d $RPM_BUILD_ROOT/bin
@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README NEWS}.bz2
+%doc {README,NEWS}.gz
 
 %attr(755,root,root) /usr/bin/*
 /usr/man/man1/*
@@ -69,6 +69,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Mar 18 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+  [322-6]
+- gzipping documentation (instead bzipping)
+
 * Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [322-5]
 - added Group(pl),
