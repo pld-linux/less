@@ -4,13 +4,13 @@ Summary(fr):	une lecteur de fichiers texte.
 Summary(pl):	Przegl±darka plików tekstowych - mniej jest wiêcej
 Summary(tr):	Metin dosyasý görüntüleyici - more benzeri
 Name:		less
-Version:	354
+Version:	358
 Release:	1
 License:	GPL
 Group:		Utilities/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
-Source0:	http://www.flash.net/~marknu/less/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
 Source1:	less.1.pl
 Patch0:		less-DESTDIR.patch
 BuildRequires:	ncurses-devel >= 5.0
