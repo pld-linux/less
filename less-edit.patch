@@ -1,0 +1,12 @@
+diff -urN less-358/main.c less-358_/main.c
+--- less-358/main.c	Sat Jul  8 20:26:46 2000
++++ less-358_/main.c	Mon Nov 27 08:28:03 2000
+@@ -141,7 +141,7 @@
+ 	}
+ 	editproto = lgetenv("LESSEDIT");
+ 	if (editproto == NULL || *editproto == '\0')
+-		editproto = "%E ?lm+%lm. %f";
++		editproto = "%E ?lm+%lm. '%f'";
+ #endif
+ 
+ 	/*
