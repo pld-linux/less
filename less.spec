@@ -15,7 +15,7 @@ Patch0:		less-DESTDIR.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	autoconf
 URL:		http://www.flash.net/~marknu/less/
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 less is a text file viewer much like 'more', only better.  
