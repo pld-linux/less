@@ -10,7 +10,7 @@ Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	382
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
