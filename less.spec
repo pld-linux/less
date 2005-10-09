@@ -10,10 +10,10 @@ Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	382
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Text
-Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
 # Source0-md5:	103fe4aef6297b93f0f73f38cc3b1bd7
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	07bb76556307ab4cecba7abd3933bad2
@@ -92,14 +92,14 @@ chmod -R u+w .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT/etc/env.d
+install -d $RPM_BUILD_ROOT{%{_mandir},etc/env.d}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}
-install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/man1/
+install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/man1
 
 # Prepare env file
 cat > $RPM_BUILD_ROOT/etc/env.d/LESSOPEN <<EOF
@@ -110,6 +110,8 @@ EOF
 install -d $RPM_BUILD_ROOT/bin
 ln -sf %{_bindir}/less $RPM_BUILD_ROOT/bin/more
 %endif
+
+rm -f $RPM_BUILD_ROOT%{_mandir}/README.less-non-english-man-pages*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
