@@ -92,7 +92,7 @@ chmod -R u+w .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_mandir},etc/env.d}
+install -d $RPM_BUILD_ROOT{%{_mandir},/etc/env.d}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
