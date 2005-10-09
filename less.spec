@@ -11,7 +11,7 @@ Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	382
 Release:	5
-License:	GPL
+License:	GPL v2
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
 # Source0-md5:	103fe4aef6297b93f0f73f38cc3b1bd7
@@ -119,7 +119,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README NEWS
-
 %attr(755,root,root) %{_bindir}/*
 %config(noreplace,missingok) %verify(not md5 size mtime) /etc/env.d/LESSOPEN
 %{_mandir}/man1/*
@@ -128,7 +127,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_mandir}/it/man1/*
 %lang(ja) %{_mandir}/ja/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
-
 %ifarch axp
 %attr(755,root,root) /bin/more
 %endif
