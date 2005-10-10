@@ -106,11 +106,6 @@ cat > $RPM_BUILD_ROOT/etc/env.d/LESSOPEN <<EOF
 LESSOPEN="|lesspipe.sh %s"
 EOF
 
-%ifarch axp
-install -d $RPM_BUILD_ROOT/bin
-ln -sf %{_bindir}/less $RPM_BUILD_ROOT/bin/more
-%endif
-
 rm -f $RPM_BUILD_ROOT%{_mandir}/README.less-non-english-man-pages*
 
 %clean
@@ -120,13 +115,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README NEWS
 %attr(755,root,root) %{_bindir}/*
-%config(noreplace,missingok) %verify(not md5 size mtime) /etc/env.d/LESSOPEN
+%config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/LESSOPEN
 %{_mandir}/man1/*
 %lang(de) %{_mandir}/de/man1/*
 %lang(hu) %{_mandir}/hu/man1/*
 %lang(it) %{_mandir}/it/man1/*
 %lang(ja) %{_mandir}/ja/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
-%ifarch axp
-%attr(755,root,root) /bin/more
-%endif
