@@ -10,7 +10,7 @@ Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	382
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/less/%{name}-%{version}.tar.gz
@@ -105,6 +105,8 @@ install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/man1
 cat > $RPM_BUILD_ROOT/etc/env.d/LESSOPEN <<EOF
 LESSOPEN="|lesspipe.sh %s"
 EOF
+echo '#LESS="i m q s X"' > $RPM_BUILD_ROOT/etc/env.d/LESS
+echo '#PAGER=less' > $RPM_BUILD_ROOT/etc/env.d/PAGER
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/README.less-non-english-man-pages*
 
@@ -115,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README NEWS
 %attr(755,root,root) %{_bindir}/*
-%config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/LESSOPEN
+%config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/*
 %{_mandir}/man1/*
 %lang(de) %{_mandir}/de/man1/*
 %lang(hu) %{_mandir}/hu/man1/*
