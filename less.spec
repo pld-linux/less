@@ -85,7 +85,7 @@ chmod -R u+w .
 %{__autoconf}
 %configure
 
-%{__make} LIBS="-ltinfo" \
+%{__make} \
 	CPPFLAGS="-D_GNU_SOURCE -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64"
 
 %install
