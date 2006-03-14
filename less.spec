@@ -103,7 +103,7 @@ install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/man1
 cat > $RPM_BUILD_ROOT/etc/env.d/LESSOPEN <<EOF
 LESSOPEN="|lesspipe.sh %s"
 EOF
-echo 'LESS="-R -M --shift 5"' > $RPM_BUILD_ROOT/etc/env.d/LESS
+echo '#LESS="i m q s X"' > $RPM_BUILD_ROOT/etc/env.d/LESS
 echo '#PAGER=less' > $RPM_BUILD_ROOT/etc/env.d/PAGER
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/README.less-non-english-man-pages*
