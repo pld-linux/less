@@ -10,7 +10,7 @@ Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
 Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
 Name:		less
 Version:	394
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
@@ -26,6 +26,7 @@ Patch3:		%{name}-libtinfo.patch
 URL:		http://www.greenwoodsoftware.com/less/
 BuildRequires:	autoconf
 BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	rpmbuild(macros) >= 1.316
 Requires:	file
 Requires:	setup >= 2.4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -110,6 +111,12 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/README.less-non-english-man-pages*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%env_update
+
+%postun
+%env_update
 
 %files
 %defattr(644,root,root,755)
