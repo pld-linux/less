@@ -1,13 +1,13 @@
 # - SECURITY: http://securitytracker.com/alerts/2004/Aug/1010988.html
 Summary:	Text file browser -- less is more
-Summary(de):	Programm zum Anzeigen von Textdateien - weniger ist mehr
-Summary(es):	Browser para archivo texto (- es +)
-Summary(fr):	Une lecteur de fichiers texte
-Summary(pl):	Przegl╠darka plikСw tekstowych - mniej jest wiЙcej
-Summary(pt_BR):	Browser para arquivo texto (- И +)
-Summary(ru):	Программа для просмотра текстовых файлов похожая на more, но лучше
-Summary(tr):	Metin dosyasЩ gЖrЭntЭleyici - more benzeri
-Summary(uk):	Програма для перегляду текстових файл╕в схожа на more, але краща
+Summary(de.UTF-8):   Programm zum Anzeigen von Textdateien - weniger ist mehr
+Summary(es.UTF-8):   Browser para archivo texto (- es +)
+Summary(fr.UTF-8):   Une lecteur de fichiers texte
+Summary(pl.UTF-8):   Przeglд┘darka plikцЁw tekstowych - mniej jest wiд≥cej
+Summary(pt_BR.UTF-8):   Browser para arquivo texto (- ц╘ +)
+Summary(ru.UTF-8):   п÷я─п╬пЁя─п╟п╪п╪п╟ п╢п╩я▐ п©я─п╬я│п╪п╬я┌я─п╟ я┌п╣п╨я│я┌п╬п╡я▀я┘ я└п╟п╧п╩п╬п╡ п©п╬я┘п╬п╤п╟я▐ п╫п╟ more, п╫п╬ п╩я┐я┤я┬п╣
+Summary(tr.UTF-8):   Metin dosyasд╠ gц╤rц╪ntц╪leyici - more benzeri
+Summary(uk.UTF-8):   п÷я─п╬пЁя─п╟п╪п╟ п╢п╩я▐ п©п╣я─п╣пЁп╩я▐п╢я┐ я┌п╣п╨я│я┌п╬п╡п╦я┘ я└п╟п╧п╩я√п╡ я│я┘п╬п╤п╟ п╫п╟ more, п╟п╩п╣ п╨я─п╟я┴п╟
 Name:		less
 Version:	394
 Release:	5
@@ -38,41 +38,41 @@ well as forwards. Since less doesn't have to read the entire input
 file before it starts, less starts up more quickly than text editors
 (for example, vi).
 
-%description -l de
-less ist ein Textdatei-Viewer Дhnlich 'more' ... aber besser!
+%description -l de.UTF-8
+less ist ein Textdatei-Viewer ц╓hnlich 'more' ... aber besser!
 
-%description -l es
-less es un visor de archivo texto parecido con 'more', sСlo que mejor.
+%description -l es.UTF-8
+less es un visor de archivo texto parecido con 'more', sцЁlo que mejor.
 
-%description -l fr
-less est un visualisateur de fichier texte, comme ╚ more ╩, mais en
+%description -l fr.UTF-8
+less est un visualisateur de fichier texte, comme б╚ more б╩, mais en
 mieux.
 
-%description -l pl
-Less jest programem podobnym w dziaЁaniu do standardowego uniksowego
-`more', lecz o znacznie wiЙkszych mo©liwo╤ciach.
+%description -l pl.UTF-8
+Less jest programem podobnym w dziaе┌aniu do standardowego uniksowego
+`more', lecz o znacznie wiд≥kszych moе╪liwoе⌡ciach.
 
-%description -l pt_BR
-less И um visualizador de arquivo texto parecido com 'more', sС que
+%description -l pt_BR.UTF-8
+less ц╘ um visualizador de arquivo texto parecido com 'more', sцЁ que
 melhor.
 
-%description -l ru
-Программа для просмотра текстовых файлов, похожа на more, но имеет
-больше возможностей. less позволяет двигаться по файлу в обратном
-направлении. Поскольку less не считывает предварительно весь входной
-файл, он запускается значительно быстрее текстовых редакторов
-(например, vi).
+%description -l ru.UTF-8
+п÷я─п╬пЁя─п╟п╪п╪п╟ п╢п╩я▐ п©я─п╬я│п╪п╬я┌я─п╟ я┌п╣п╨я│я┌п╬п╡я▀я┘ я└п╟п╧п╩п╬п╡, п©п╬я┘п╬п╤п╟ п╫п╟ more, п╫п╬ п╦п╪п╣п╣я┌
+п╠п╬п╩я▄я┬п╣ п╡п╬п╥п╪п╬п╤п╫п╬я│я┌п╣п╧. less п©п╬п╥п╡п╬п╩я▐п╣я┌ п╢п╡п╦пЁп╟я┌я▄я│я▐ п©п╬ я└п╟п╧п╩я┐ п╡ п╬п╠я─п╟я┌п╫п╬п╪
+п╫п╟п©я─п╟п╡п╩п╣п╫п╦п╦. п÷п╬я│п╨п╬п╩я▄п╨я┐ less п╫п╣ я│я┤п╦я┌я▀п╡п╟п╣я┌ п©я─п╣п╢п╡п╟я─п╦я┌п╣п╩я▄п╫п╬ п╡п╣я│я▄ п╡я┘п╬п╢п╫п╬п╧
+я└п╟п╧п╩, п╬п╫ п╥п╟п©я┐я│п╨п╟п╣я┌я│я▐ п╥п╫п╟я┤п╦я┌п╣п╩я▄п╫п╬ п╠я▀я│я┌я─п╣п╣ я┌п╣п╨я│я┌п╬п╡я▀я┘ я─п╣п╢п╟п╨я┌п╬я─п╬п╡
+(п╫п╟п©я─п╦п╪п╣я─, vi).
 
-%description -l tr
-less, more aracЩna Гok benzeyen ama ondan daha yetenekli bir dosya
-gЖrЭntЭleme aracЩdЩr. Metin dosyalarЩnЩn sayfa sayfa gЖsterilmesini
-saПlar.
+%description -l tr.UTF-8
+less, more aracд╠na ц╖ok benzeyen ama ondan daha yetenekli bir dosya
+gц╤rц╪ntц╪leme aracд╠dд╠r. Metin dosyalarд╠nд╠n sayfa sayfa gц╤sterilmesini
+saд÷lar.
 
-%description -l uk
-Програма для перегляду текстових файл╕в; схожа на more, але ма╓ б╕льше
-можливостей. less дозволя╓ рухатись по файлу в зворотньому напрямку.
-Оск╕льки less не зчиту╓ попередньо весь вх╕дний файл, в╕н запуска╓ться
-значно швидше н╕ж текстов╕ редактори (наприклад, vi).
+%description -l uk.UTF-8
+п÷я─п╬пЁя─п╟п╪п╟ п╢п╩я▐ п©п╣я─п╣пЁп╩я▐п╢я┐ я┌п╣п╨я│я┌п╬п╡п╦я┘ я└п╟п╧п╩я√п╡; я│я┘п╬п╤п╟ п╫п╟ more, п╟п╩п╣ п╪п╟я■ п╠я√п╩я▄я┬п╣
+п╪п╬п╤п╩п╦п╡п╬я│я┌п╣п╧. less п╢п╬п╥п╡п╬п╩я▐я■ я─я┐я┘п╟я┌п╦я│я▄ п©п╬ я└п╟п╧п╩я┐ п╡ п╥п╡п╬я─п╬я┌п╫я▄п╬п╪я┐ п╫п╟п©я─я▐п╪п╨я┐.
+п·я│п╨я√п╩я▄п╨п╦ less п╫п╣ п╥я┤п╦я┌я┐я■ п©п╬п©п╣я─п╣п╢п╫я▄п╬ п╡п╣я│я▄ п╡я┘я√п╢п╫п╦п╧ я└п╟п╧п╩, п╡я√п╫ п╥п╟п©я┐я│п╨п╟я■я┌я▄я│я▐
+п╥п╫п╟я┤п╫п╬ я┬п╡п╦п╢я┬п╣ п╫я√п╤ я┌п╣п╨я│я┌п╬п╡я√ я─п╣п╢п╟п╨я┌п╬я─п╦ (п╫п╟п©я─п╦п╨п╩п╟п╢, vi).
 
 %prep
 %setup  -q
