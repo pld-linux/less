@@ -1,13 +1,13 @@
 # - SECURITY: http://securitytracker.com/alerts/2004/Aug/1010988.html
 Summary:	Text file browser -- less is more
-Summary(de.UTF-8):   Programm zum Anzeigen von Textdateien - weniger ist mehr
-Summary(es.UTF-8):   Browser para archivo texto (- es +)
-Summary(fr.UTF-8):   Une lecteur de fichiers texte
-Summary(pl.UTF-8):   Przeglądarka plików tekstowych - mniej jest więcej
-Summary(pt_BR.UTF-8):   Browser para arquivo texto (- é +)
-Summary(ru.UTF-8):   Программа для просмотра текстовых файлов похожая на more, но лучше
-Summary(tr.UTF-8):   Metin dosyası görüntüleyici - more benzeri
-Summary(uk.UTF-8):   Програма для перегляду текстових файлів схожа на more, але краща
+Summary(de.UTF-8):	Programm zum Anzeigen von Textdateien - weniger ist mehr
+Summary(es.UTF-8):	Browser para archivo texto (- es +)
+Summary(fr.UTF-8):	Une lecteur de fichiers texte
+Summary(pl.UTF-8):	Przeglądarka plików tekstowych - mniej jest więcej
+Summary(pt_BR.UTF-8):	Browser para arquivo texto (- é +)
+Summary(ru.UTF-8):	Программа для просмотра текстовых файлов похожая на more, но лучше
+Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
+Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
 Version:	394
 Release:	5
