@@ -21,6 +21,7 @@ Source2:	%{name}pipe.sh
 Source3:	%{name}echo.1
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
+Patch4:		%{name}-multilib.patch
 Patch2:		%{name}-edit.patch
 Patch3:		%{name}-libtinfo.patch
 URL:		http://www.greenwoodsoftware.com/less/
@@ -80,6 +81,7 @@ sağlar.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__autoconf}
