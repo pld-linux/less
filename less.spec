@@ -10,7 +10,7 @@ Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
 Version:	394
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
