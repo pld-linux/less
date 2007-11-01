@@ -10,15 +10,14 @@ Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
 Version:	394
-Release:	7
+Release:	8
 License:	GPL v2
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
 # Source0-md5:	a9f072ccefa0d315b325f3e9cdbd4b97
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	07bb76556307ab4cecba7abd3933bad2
-Source2:	%{name}pipe.sh
-Source3:	%{name}echo.1
+Source2:	%{name}echo.1
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-shell.patch
 Patch4:		%{name}-multilib.patch
@@ -28,7 +27,7 @@ URL:		http://www.greenwoodsoftware.com/less/
 BuildRequires:	autoconf
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	rpmbuild(macros) >= 1.317
-Requires:	file
+Requires:	lesspipe
 Requires:	setup >= 2.4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -98,13 +97,9 @@ install -d $RPM_BUILD_ROOT{%{_mandir},/etc/env.d}
 	DESTDIR=$RPM_BUILD_ROOT
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}
-install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/man1
+install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1
 
-# Prepare env file
-cat > $RPM_BUILD_ROOT/etc/env.d/LESSOPEN <<EOF
-LESSOPEN="|lesspipe.sh %s"
-EOF
+# Prepare env files
 echo '#LESS="i m q s X -M"' > $RPM_BUILD_ROOT/etc/env.d/LESS
 echo '#PAGER=less' > $RPM_BUILD_ROOT/etc/env.d/PAGER
 
