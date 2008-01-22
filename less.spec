@@ -1,4 +1,3 @@
-# - SECURITY: http://securitytracker.com/alerts/2004/Aug/1010988.html
 Summary:	Text file browser -- less is more
 Summary(de.UTF-8):	Programm zum Anzeigen von Textdateien - weniger ist mehr
 Summary(es.UTF-8):	Browser para archivo texto (- es +)
@@ -9,22 +8,20 @@ Summary(ru.UTF-8):	Программа для просмотра текстовы
 Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
-Version:	394
-Release:	9
-License:	GPL v2
+Version:	418
+Release:	1
+License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
-# Source0-md5:	a9f072ccefa0d315b325f3e9cdbd4b97
+# Source0-md5:	b5864d76c54ddf4627fd57ab333c88b4
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	07bb76556307ab4cecba7abd3933bad2
 Source2:	%{name}echo.1
-Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-shell.patch
-Patch4:		%{name}-multilib.patch
-Patch2:		%{name}-edit.patch
-Patch3:		%{name}-libtinfo.patch
+Patch0:		%{name}-shell.patch
+Patch1:		%{name}-multilib.patch
+Patch2:		%{name}-libtinfo.patch
 URL:		http://www.greenwoodsoftware.com/less/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	rpmbuild(macros) >= 1.317
 Requires:	lesspipe
@@ -75,12 +72,10 @@ sağlar.
 значно швидше ніж текстові редактори (наприклад, vi).
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
 %{__autoconf}
@@ -117,11 +112,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README NEWS
-%attr(755,root,root) %{_bindir}/*
-%config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/*
-%{_mandir}/man1/*
-%lang(de) %{_mandir}/de/man1/*
-%lang(hu) %{_mandir}/hu/man1/*
-%lang(it) %{_mandir}/it/man1/*
-%lang(ja) %{_mandir}/ja/man1/*
-%lang(pl) %{_mandir}/pl/man1/*
+%attr(755,root,root) %{_bindir}/less*
+%config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/LESS
+%config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/PAGER
+%{_mandir}/man1/less*.1*
+%lang(de) %{_mandir}/de/man1/less.1*
+%lang(hu) %{_mandir}/hu/man1/less.1*
+%lang(it) %{_mandir}/it/man1/less*.1*
+%lang(ja) %{_mandir}/ja/man1/less*.1*
+%lang(pl) %{_mandir}/pl/man1/less*.1*
