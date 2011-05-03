@@ -1,0 +1,19 @@
+--- less-418/Makefile.in.orig	2007-11-29 00:06:43.000000000 +0100
++++ less-418/Makefile.in	2008-01-22 20:49:05.929713493 +0100
+@@ -53,13 +53,13 @@
+ all: less$(EXEEXT) lesskey$(EXEEXT) lessecho$(EXEEXT)
+ 
+ less$(EXEEXT): ${OBJ}
+-	${CC} ${LDFLAGS} -o $@ ${OBJ} ${LIBS}
++	${CC} ${CFLAGS} ${LDFLAGS} -o $@ ${OBJ} ${LIBS}
+ 
+ lesskey$(EXEEXT): lesskey.${O} version.${O}
+-	${CC} ${LDFLAGS} -o $@ lesskey.${O} version.${O}
++	${CC} ${CFLAGS} ${LDFLAGS} -o $@ lesskey.${O} version.${O}
+ 
+ lessecho$(EXEEXT): lessecho.${O} version.${O}
+-	${CC} ${LDFLAGS} -o $@ lessecho.${O} version.${O}
++	${CC} ${CFLAGS} ${LDFLAGS} -o $@ lessecho.${O} version.${O}
+ 
+ ${OBJ}: ${srcdir}/less.h ${srcdir}/funcs.h defines.h 
+ 
