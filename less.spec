@@ -8,13 +8,13 @@ Summary(ru.UTF-8):	Программа для просмотра текстовы
 Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
-Version:	444
-Release:	3
+Version:	451
+Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 #Source0Download: http://www.greenwoodsoftware.com/less/download.html
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
-# Source0-md5:	56f9f76ffe13f70155f47f6b3c87d421
+# Source0-md5:	765f082658002b2b46b86af4a0da1842
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	07bb76556307ab4cecba7abd3933bad2
 Source2:	%{name}echo.1
