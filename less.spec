@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
 Version:	451
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
 #Source0Download: http://www.greenwoodsoftware.com/less/download.html
@@ -25,7 +25,6 @@ URL:		http://www.greenwoodsoftware.com/less/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	rpmbuild(macros) >= 1.317
-Requires:	lesspipe
 Requires:	setup >= 2.4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
