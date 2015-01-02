@@ -26,6 +26,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	rpmbuild(macros) >= 1.317
 Requires:	setup >= 2.4.6
+Suggests:	lesspipe
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
