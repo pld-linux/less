@@ -1,6 +1,6 @@
---- less-394/filename.c~	2006-02-23 01:49:12.000000000 +0200
-+++ less-394/filename.c	2006-02-23 01:50:36.000000000 +0200
-@@ -557,37 +557,7 @@
+--- less-481/filename.c.orig	2015-10-30 20:54:28.100188419 +0100
++++ less-481/filename.c	2015-10-30 21:16:14.293494525 +0100
+@@ -582,37 +582,7 @@
  {
  	FILE *fd;
  
@@ -23,7 +23,7 @@
 -			fd = popen(cmd, "r");
 -		} else
 -		{
--			int len = strlen(shell) + strlen(esccmd) + 5;
+-			int len = (int) (strlen(shell) + strlen(esccmd) + 5);
 -			scmd = (char *) ecalloc(len, sizeof(char));
 -			SNPRINTF3(scmd, len, "%s %s %s", shell, shell_coption(), esccmd);
 -			free(esccmd);
@@ -33,9 +33,8 @@
 -	} else
 -#endif
 -	{
--		fd = popen(cmd, "r");
+ 		fd = popen(cmd, "r");
 -	}
-+	fd = popen(cmd, "r");
  	/*
  	 * Redirection in `popen' might have messed with the
  	 * standard devices.  Restore binary input mode.

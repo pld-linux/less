@@ -8,13 +8,13 @@ Summary(ru.UTF-8):	Программа для просмотра текстовы
 Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
-Version:	451
-Release:	3
+Version:	481
+Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 #Source0Download: http://www.greenwoodsoftware.com/less/download.html
 Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
-# Source0-md5:	765f082658002b2b46b86af4a0da1842
+# Source0-md5:	50ef46065c65257141a7340123527767
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	07bb76556307ab4cecba7abd3933bad2
 Source2:	%{name}echo.1
@@ -82,8 +82,7 @@ sağlar.
 %{__autoconf}
 %configure
 
-%{__make} \
-	CPPFLAGS="-D_GNU_SOURCE -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -92,14 +91,14 @@ install -d $RPM_BUILD_ROOT{%{_mandir},/etc/env.d}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1
-
 # Prepare env files
 echo '#LESS="i m q s X -M"' > $RPM_BUILD_ROOT/etc/env.d/LESS
 echo '#PAGER=less' > $RPM_BUILD_ROOT/etc/env.d/PAGER
 
-rm -f $RPM_BUILD_ROOT%{_mandir}/README.less-non-english-man-pages*
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1
+
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/README.less-non-english-man-pages*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
