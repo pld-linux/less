@@ -8,7 +8,7 @@
 -	char *shell;
 -
 -	shell = lgetenv("SHELL");
--	if (shell != NULL && *shell != '\0')
+-	if (!isnullenv(shell))
 -	{
 -		char *scmd;
 -		char *esccmd;
