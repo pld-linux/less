@@ -1,14 +1,15 @@
---- less-418/configure.ac.orig	2007-11-15 18:43:30.000000000 +0100
-+++ less-418/configure.ac	2008-01-22 21:04:46.715325810 +0100
-@@ -23,6 +23,7 @@
+diff -urNp -x '*.orig' less-563.org/configure.ac less-563/configure.ac
+--- less-563.org/configure.ac	2020-06-14 05:34:53.000000000 +0200
++++ less-563/configure.ac	2021-03-21 01:03:15.189335808 +0100
+@@ -23,6 +23,7 @@ AC_PROG_INSTALL
  AC_SYS_LARGEFILE
  
  # Checks for general libraries.
 +AC_CHECK_LIB(tinfow, tgoto, [have_tinfow=yes], [have_tinfow=no])
  AC_CHECK_LIB(tinfo, tgoto, [have_tinfo=yes], [have_tinfo=no])
+ AC_CHECK_LIB(tinfow, tgoto, [have_tinfow=yes], [have_tinfow=no])
  AC_CHECK_LIB(xcurses, initscr, [have_xcurses=yes], [have_xcurses=no])
- AC_CHECK_LIB(ncursesw, initscr, [have_ncursesw=yes], [have_ncursesw=no])
-@@ -55,6 +56,18 @@
+@@ -54,6 +55,18 @@ if test $curses_broken = 0; then
  
  # -- Try tinfo.
  if test "x$TERMLIBS" = x; then
