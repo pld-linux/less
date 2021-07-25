@@ -13,7 +13,7 @@ Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 #Source0Download: http://www.greenwoodsoftware.com/less/download.html
-Source0:	http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
+Source0:	https://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
 # Source0-md5:	f029087448357812fba450091a1172ab
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	07bb76556307ab4cecba7abd3933bad2
