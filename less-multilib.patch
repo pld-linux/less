@@ -8,9 +8,9 @@ diff -urNp -x '*.orig' less-563.org/Makefile.in less-563/Makefile.in
 -	${CC} ${LDFLAGS} -o $@ ${OBJ} ${LIBS}
 +	${CC} ${CFLAGS} ${LDFLAGS} -o $@ ${OBJ} ${LIBS}
  
- lesskey$(EXEEXT): lesskey.${O} version.${O}
--	${CC} ${LDFLAGS} -o $@ lesskey.${O} version.${O}
-+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ lesskey.${O} version.${O}
+ lesskey$(EXEEXT): lesskey.${O} lesskey_parse.${O} xbuf.${O} version.${O}
+-	${CC} ${LDFLAGS} -o $@ lesskey.${O} lesskey_parse.${O} xbuf.${O} version.${O}
++	${CC} ${CFLAGS} ${LDFLAGS} -o $@ lesskey.${O} lesskey_parse.${O} xbuf.${O} version.${O}
  
  lessecho$(EXEEXT): lessecho.${O} version.${O}
 -	${CC} ${LDFLAGS} -o $@ lessecho.${O} version.${O}
