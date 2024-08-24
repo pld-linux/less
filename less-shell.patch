@@ -1,11 +1,11 @@
---- less-481/filename.c.orig	2015-10-30 20:54:28.100188419 +0100
-+++ less-481/filename.c	2015-10-30 21:16:14.293494525 +0100
-@@ -582,37 +582,7 @@
+--- less-661/filename.c.orig	2024-08-24 20:24:56.143727073 +0200
++++ less-661/filename.c	2024-08-24 20:27:41.742829946 +0200
+@@ -550,37 +550,7 @@ static FILE * shellcmd(constant char *cm
  {
  	FILE *fd;
  
 -#if HAVE_SHELL
--	char *shell;
+-	constant char *shell;
 -
 -	shell = lgetenv("SHELL");
 -	if (!isnullenv(shell))
@@ -23,7 +23,7 @@
 -			fd = popen(cmd, "r");
 -		} else
 -		{
--			int len = (int) (strlen(shell) + strlen(esccmd) + 5);
+-			size_t len = strlen(shell) + strlen(esccmd) + 5;
 -			scmd = (char *) ecalloc(len, sizeof(char));
 -			SNPRINTF3(scmd, len, "%s %s %s", shell, shell_coption(), esccmd);
 -			free(esccmd);
