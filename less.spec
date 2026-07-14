@@ -8,13 +8,13 @@ Summary(ru.UTF-8):	Программа для просмотра текстовы
 Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
-Version:	692
+Version:	704
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 #Source0Download: http://www.greenwoodsoftware.com/less/download.html
 Source0:	https://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
-# Source0-md5:	4efd31e34ecf7682a6c62a3c53007600
+# Source0-md5:	c4c9eea5b1862783b078c67ca67c9185
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	07bb76556307ab4cecba7abd3933bad2
 Source2:	%{name}echo.1
@@ -112,9 +112,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README NEWS
-%attr(755,root,root) %{_bindir}/less*
 %config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/LESS
 %config(noreplace,missingok) %verify(not md5 mtime size) /etc/env.d/PAGER
+%attr(755,root,root) %{_bindir}/less*
+%attr(755,root,root) %{_libexecdir}/less-osc8-open
+%attr(755,root,root) %{_libexecdir}/lessecho
 %{_mandir}/man1/less*.1*
 %lang(de) %{_mandir}/de/man1/less.1*
 %lang(hu) %{_mandir}/hu/man1/less.1*
