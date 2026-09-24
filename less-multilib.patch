@@ -1,17 +1,13 @@
 --- less-661/Makefile.in.orig	2024-08-24 20:28:01.122724956 +0200
 +++ less-661/Makefile.in	2024-08-24 21:24:31.187692732 +0200
-@@ -62,13 +62,13 @@ endif
- all: less$(EXEEXT) lesskey$(EXEEXT) lessecho$(EXEEXT)
+@@ -62,10 +62,10 @@ endif
+ all: less$(EXE) lessecho$(EXE)
  
- less$(EXEEXT): ${OBJ}
+ less$(EXE): ${OBJ}
 -	${CC} ${LDFLAGS} -o $@ ${OBJ} ${LIBS}
 +	${CC} ${CFLAGS} ${LDFLAGS} -o $@ ${OBJ} ${LIBS}
  
- lesskey$(EXEEXT): lesskey.${O} lesskey_parse.${O} xbuf.${O} version.${O}
--	${CC} ${LDFLAGS} -o $@ lesskey.${O} lesskey_parse.${O} xbuf.${O} version.${O} ${LIBS}
-+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ lesskey.${O} lesskey_parse.${O} xbuf.${O} version.${O} ${LIBS}
- 
- lessecho$(EXEEXT): lessecho.${O} version.${O}
+ lessecho$(EXE): lessecho.${O} version.${O}
 -	${CC} ${LDFLAGS} -o $@ lessecho.${O} version.${O} ${LIBS}
 +	${CC} ${CFLAGS} ${LDFLAGS} -o $@ lessecho.${O} version.${O} ${LIBS}
  

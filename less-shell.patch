@@ -1,6 +1,6 @@
---- less-661/filename.c.orig	2024-08-24 20:24:56.143727073 +0200
-+++ less-661/filename.c	2024-08-24 20:27:41.742829946 +0200
-@@ -550,38 +550,7 @@ static FILE * shellcmd(constant char *cm
+--- less-710/filename.c.orig	2026-09-09 03:42:36.000000000 +0200
++++ less-710/filename.c	2026-09-25 01:29:41.954131707 +0200
+@@ -584,43 +584,7 @@
  {
  	FILE *fd;
  
@@ -10,26 +10,31 @@
 -	shell = lgetenv("SHELL");
 -	if (!isnullenv(shell))
 -	{
--		char *scmd;
--		char *esccmd;
+-		constant char *copt = shell_coption();
 -
 -		/*
 -		 * Read the output of <$SHELL -c cmd>.  
 -		 * Escape any metacharacters in the command.
 -		 */
--		esccmd = shell_quote(cmd);
--		if (esccmd == NULL)
+-		if (copt == NULL)
 -		{
 -			fd = popen(cmd, "r");
 -		} else
 -		{
--			constant char *copt = shell_coption();
--			size_t len = strlen(shell) + strlen(esccmd) + strlen(copt) + 3;
--			scmd = (char *) ecalloc(len, sizeof(char));
--			SNPRINTF3(scmd, len, "%s %s %s", shell, copt, esccmd);
--			free(esccmd);
--			fd = popen(scmd, "r");
--			free(scmd);
+-			char *esccmd = shell_quote(cmd);
+-			if (esccmd == NULL)
+-			{
+-				error(LM(cannot_quote_command), NULL_PARG);
+-				return NULL;
+-			} else
+-			{
+-				size_t len = strlen(shell) + strlen(esccmd) + strlen(copt) + 3;
+-				char *scmd = (char *) ecalloc(len, sizeof(char));
+-				SNPRINTF3(scmd, len, "%s %s %s", shell, copt, esccmd);
+-				fd = popen(scmd, "r");
+-				free(scmd);
+-				free(esccmd);
+-			}
 -		}
 -	} else
 -#endif
