@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	Metin dosyası görüntüleyici - more benzeri
 Summary(uk.UTF-8):	Програма для перегляду текстових файлів схожа на more, але краща
 Name:		less
 Version:	710
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
 #Source0Download: http://www.greenwoodsoftware.com/less/download.html
@@ -20,8 +20,9 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Source2:	%{name}echo.1
 Patch0:		%{name}-shell.patch
 Patch1:		%{name}-multilib.patch
-Patch2:		%{name}-libtinfo.patch
-URL:		http://www.greenwoodsoftware.com/less/
+# use-after-free on ${VAR} in lesskey #env; https://github.com/gwsw/less/commit/d46bb8e74dcf992c4f7eb840424f2339039e9fbb
+Patch3:		%{name}-expand_evars-uaf.patch
+URL:		https://www.greenwoodsoftware.com/less/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	rpmbuild(macros) >= 1.317
@@ -76,7 +77,7 @@ sağlar.
 %setup -q
 %patch -P0 -p1
 %patch -P1 -p1
-%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 %{__autoconf}
